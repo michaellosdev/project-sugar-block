@@ -1,113 +1,138 @@
-import Image from 'next/image'
+import Image from "next/image";
+import { Button } from "@/lib/components/Button";
+import { Input } from "@/lib/components/Input";
+import { Badge } from "@/lib/components/Badge";
+import { Nav } from "@/lib/components/Nav";
+import { Typography } from "@/lib/components/Typography";
+import logo from "../public/logo2.webp";
+import image from "../public/2.png";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  CardTitle,
+} from "@/lib/components/Card";
+import { Avatar, AvatarNoImage } from "@/lib/components/Avatar";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className="w-full h-fit flex justify-center items-center  flex-col">
+        {/* Typgraphy */}
+        <Typography variant="display" className="my-8" type="h1">
+          Display
+        </Typography>
+        <Typography variant="h1" className="my-8" type="h1">
+          Heading 1
+        </Typography>
+        <Typography variant="h2" className="my-8" type="h2">
+          Heading 2
+        </Typography>
+        <Typography variant="h3" className="my-8" type="h3">
+          Heading 3
+        </Typography>
+        <Typography variant="h4" className="my-8" type="h4">
+          Heading 4
+        </Typography>
+        <Typography variant="h5" className="my-8" type="h5">
+          Heading 5
+        </Typography>
+        <Typography variant="body-small" className="my-8" type="p">
+          Body small
+        </Typography>
+        <Typography variant="body" className="my-8" type="p">
+          Body
+        </Typography>
+        <Typography variant="body-large" className="my-8" type="p">
+          Body large
+        </Typography>
+        <Typography variant="label-small" className="my-8" type="p">
+          Label small
+        </Typography>
+        <Typography variant="label" className="my-8" type="p">
+          Label
+        </Typography>
+        <Typography variant="label-large" className="my-8" type="p">
+          Label large
+        </Typography>
+
+        {/* Buttons */}
+        <Button variant="filled" size="lg" className="my-8" elevation={4}>
+          button
+        </Button>
+        <Button variant="outlined" size="lg" className="my-8">
+          button
+        </Button>
+        <Button variant="text" size="lg" className="my-8">
+          button
+        </Button>
+        <Button variant="danger" size="lg" className="my-8">
+          button
+        </Button>
+        <Button
+          variant="text-accent"
+          size="lg"
+          className="my-8"
+          iconEnd={image}
+        >
+          button
+        </Button>
+
+        {/* Inputs */}
+
+        <Input variant="lg" className="my-8" placeholder="Hello" type="text" />
+        <Input variant="md" className="my-8" placeholder="Hello" type="text" />
+        <Input variant="sm" className="my-8" placeholder="Hello" type="text" />
+        <Input
+          variant="lg"
+          className="my-8"
+          placeholder="Hello"
+          type="text"
+          iconEnd={image}
+        />
+        <Input
+          variant="sm"
+          className="my-8"
+          placeholder="Hello"
+          type="text"
+          iconStart={image}
+        />
+        <Input variant="sm" className="my-8" placeholder="Hello" type="text" />
+
+        {/* Badges */}
+        <div className="w-full h-96 flex justify-center items-center">
+          <Badge value={"hi"} elevation={2} size={"sm"} variant={"extra"} />
+        </div>
+        {/* card */}
+        <div className="w-full py-16 flex justify-center items-center">
+          <Card elevation={4}>
+            <CardHeader>
+              <CardTitle>Hello</CardTitle>
+            </CardHeader>
+            <CardBody className="">
+              <Image src={logo} alt="" className="w-full "></Image>
+            </CardBody>
+            <CardFooter>
+              <Button variant="filled" size="lg" className="" elevation={4}>
+                {" "}
+                Button{" "}
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
+
+        {/* Avatar */}
+
+        <div className="w-full h-96 flex justify-center items-center">
+          <Avatar
+            image={image}
+            name="Mikhail Loskutov"
+            className="mx-4"
+          ></Avatar>
+          <AvatarNoImage size="lg"></AvatarNoImage>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </>
+  );
 }
