@@ -138,12 +138,15 @@ const Nav = React.forwardRef<HTMLDivElement, NavProps>(
           </button>
 
           <div
-            className={psb(
-              navVariants({ fill }),
-              `fixed inset-0 z-50  transform  transition-transform duration-500 ease-in-out ${
-                open ? " translate-x-0" : "translate-x-full"
-              }`
-            )}
+            className={
+              psb(fill === "transparent" ? "bg-primary" : "bg-transparent") +
+              " " +
+              psb(
+                `fixed inset-0 z-50  transform  transition-transform duration-500 ease-in-out ${
+                  open ? " translate-x-0" : "translate-x-full"
+                }`
+              )
+            }
           >
             <div className="flex h-[90vh] flex-col items-center justify-center pt-20 text-center text-3xl font-bold ">
               {links.map((link, index) => (

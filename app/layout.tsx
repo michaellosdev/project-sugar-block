@@ -22,7 +22,8 @@ export default function RootLayout({
         <Nav
           activeLink="accent"
           logo={logo}
-          fill="primary"
+          fill="transparent"
+          position={"absolute"}
           navLinks={[
             { path: "/", name: "Home" },
             { path: "/about", name: "About" },

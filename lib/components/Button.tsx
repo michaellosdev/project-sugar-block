@@ -18,13 +18,13 @@ const buttonVariants = cva(
         "filled-extra":
           "bg-extra !text-secondary hover:opacity-75 disabled:opacity-25 active:opacity-50",
         outlined:
-          "bg-transparent border-2 border-primary !text-primary hover:bg-primary25 hover:border-primary50 disabled:border-primary25 disabled:!text-primary25 disabled:hover:bg-transparent active:bg-primary50 ",
+          "bg-transparent border-2 -outline-offset-2   border-primary !text-primary hover:bg-primary25 hover:border-primary50 disabled:border-primary25 disabled:!text-primary25 disabled:hover:bg-transparent active:bg-primary50 ",
         "outlined-secondary":
-          "bg-transparent border-2 border-secondary !text-secondary hover:bg-secondary hover:!text-primary hover:opacity-75  disabled:opacity-25 active:opacity-50 ",
+          "bg-transparent border-2 -outline-offset-2 border-secondary !text-secondary hover:bg-secondary hover:!text-primary hover:opacity-75  disabled:opacity-25 active:opacity-50 ",
         "outlined-accent":
-          "bg-transparent border-2 border-accent !text-accent hover:bg-accent hover:!text-primary hover:opacity-75  disabled:opacity-25 active:opacity-50 ",
+          "bg-transparent border-2 -outline-offset-2 border-accent !text-accent hover:bg-accent hover:!text-primary hover:opacity-75  disabled:opacity-25 active:opacity-50 ",
         "outlined-extra":
-          "bg-transparent border-2 border-extra !text-extra hover:bg-extra hover:!text-primary hover:opacity-75  disabled:opacity-25 active:opacity-50 ",
+          "bg-transparent border-2 -outline-offset-2 border-extra !text-extra hover:bg-extra hover:!text-primary hover:opacity-75  disabled:opacity-25 active:opacity-50 ",
         text: "bg-transparent !text-primary hover:bg-primary25 disabled:!text-primary25 disabled:hover:bg-transparent active:bg-primary50 ",
         "text-secondary":
           "bg-transparent !text-secondary hover:bg-secondary hover:!text-primary hover:opacity-75  disabled:opacity-25 active:opacity-50 ",
@@ -38,9 +38,9 @@ const buttonVariants = cva(
           "bg-accent !text-white hover:opacity-75 disabled:opacity-25 active:opacity-50 ",
       },
       size: {
-        sm: "px-4 py-2 rounded-[6px]  text-label-small",
-        md: "px-7 py-3 rounded-[8px] text-label",
-        lg: "px-8 py-4 rounded-[12px] text-label-large  ",
+        sm: "px-4 py-2 rounded-[6px] w-fit  text-label-small",
+        md: "px-7 py-3 rounded-[8px] w-fit  text-label",
+        lg: "px-8 py-4 rounded-[12px] w-fit  text-label-large  ",
       },
       elevation: {
         0: "shadow-none",

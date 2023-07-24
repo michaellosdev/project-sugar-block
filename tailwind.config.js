@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "hero-image": "url('/bg.png')",
+      },
       colors: {
         "primary-black": "#333333",
         "light-gray": "#cccccc",
@@ -121,6 +124,54 @@ module.exports = {
         elevation2: " 0px 3px 6px 0px rgba(0, 0, 0, 0.16)",
         elevation3: " 0px 6px 10px 0px rgba(0, 0, 0, 0.25)",
         elevation4: " 0px 8px 12px 0px rgba(0, 0, 0, 0.30)",
+      },
+      keyframes: {
+        "accordion-open": {
+          "0%": {
+            maxHeight: "64px",
+          },
+          "100%": {
+            maxHeight: "var(--accordion-height)",
+          },
+        },
+        "accordion-close": {
+          "0%": {
+            maxHeight: "var(--accordion-height)",
+          },
+          "100%": {
+            maxHeight: "64px",
+          },
+        },
+        "alert-open": {
+          "0%": {
+            transform: "translateY(100%)",
+
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateY(0)",
+
+            opacity: 1,
+          },
+        },
+        "alert-close": {
+          "0%": {
+            transform: "translateY(0)",
+
+            opacity: 1,
+          },
+          "100%": {
+            transform: "translateY(100%)",
+
+            opacity: 0,
+          },
+        },
+      },
+      animation: {
+        "accordion-open": "accordion-open 0.1s ease-in-out",
+        "accordion-close": "accordion-close 0.1s ease-in-out",
+        "alert-open": "alert-open 0.3s forwards",
+        "alert-close": "alert-close 0.3s forwards",
       },
     },
   },

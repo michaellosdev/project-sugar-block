@@ -11,10 +11,10 @@ const avatarVariants = cva(
     variants: {
       size: {
         sm: "w-10 h-10  text-h5 !text-[12px]",
-        md: "w-16 h-16 text-h5 text-[20px]",
-        lg: "w-24 h-24 text-h5 text-[36px]",
-        xl: "w-28 h-28 text-h5 text-[40px]",
-        xxl: "w-32 h-32 text-h5 text-[48px]",
+        md: "w-16 h-16 text-h5 !text-[20px]",
+        lg: "w-24 h-24 text-h5 !text-[36px]",
+        xl: "w-28 h-28 text-h5 !text-[40px]",
+        xxl: "w-32 h-32 text-h5 !text-[48px]",
       },
       elevation: {
         0: "shadow-none",
