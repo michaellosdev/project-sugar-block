@@ -1,4 +1,4 @@
-# Constructor README
+# Read Me
 
 Welcome to my website components repository! This component library made to make it easy to build websites and cut development time in half (hopefully)
 I use it for my Web Agency (https://loskutech.com) to build websites for my clients. All of the components optimized to reach 100% in Lighthouse and Google PageSpeed Insights.
