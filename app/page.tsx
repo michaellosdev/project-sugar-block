@@ -19,15 +19,15 @@ import {
 import { Avatar, AvatarNoImage } from "@/lib/components/Avatar";
 import { Accordion, AccordionItem } from "@/lib/components/Accordion";
 import { Alert } from "@/lib/components/Alert";
-import { HeroSection } from "@/lib/sections/hero/HeroSection";
-import image1 from "../public/menu 1.png";
+import { Hero } from "@/lib/sections/Hero/Hero";
+import image1 from "../public/Asset 4.png";
 
 export default function Home() {
   // const [show, setShow] = React.useState(true);
 
   return (
     <>
-      <HeroSection
+      <Hero
         className="pt-36"
         header="Lets build something great together."
         subheader="Project Sugar Block"

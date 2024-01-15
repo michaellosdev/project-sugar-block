@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { psb } from "../utils/psb";
 
 const cardVariants = cva(
-  "card px-6 bg-white py-14 rounded-[16px] text-left relative w-fit",
+  "card px-6  py-14 rounded-[16px] text-left relative w-fit ",
   {
     variants: {
       elevation: {

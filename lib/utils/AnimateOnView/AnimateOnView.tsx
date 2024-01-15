@@ -1,3 +1,5 @@
+"use client";
+
 import React, {
   useEffect,
   useRef,
@@ -8,13 +10,32 @@ import React, {
   ReactNode,
   FC,
 } from "react";
+import animationTypes from "./animationTypes";
 
 interface AnimateOnViewProps {
+  className?: string;
   children: ReactNode;
-  activeStyle: CSSProperties;
-  inactiveStyle: CSSProperties;
-  activeStyleClass: string;
-  inactiveStyleClass: string;
+  delay?: number;
+  type:
+    | "fadeInLeft"
+    | "fadeInRight"
+    | "fadeInUp"
+    | "fadeInDown"
+    | "fadeIn"
+    | "zoomIn"
+    | "zoomOut"
+    | "slideRotateIn"
+    | "slideRotateOut"
+    | "bounce"
+    | "heartBeat"
+    | "swing"
+    | "rubberBand"
+    | "shake"
+    | "wobble"
+    | "flipInX"
+    | "flipInY"
+    | "lightSpeedIn"
+    | "flash";
 }
 
 interface AnimateOnViewContextValue {
@@ -30,26 +51,37 @@ const useAnimateOnViewContext = (): AnimateOnViewContextValue | undefined =>
 
 const AnimateOnView: FC<AnimateOnViewProps> = ({
   children,
-  activeStyle,
-  inactiveStyle,
-  activeStyleClass,
-  inactiveStyleClass,
+  delay,
+  className,
+  type,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isIntersectingNow, setIsIntersecting] = useState(false);
   const [observer, setObserver] = useState<IntersectionObserver | null>(null);
   const [hasBeenViewed, setHasBeenViewed] = useState(false);
 
+  //determine animation type
+
   useEffect(() => {
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log("isIntersecting");
+            //testing
+            // console.log("isIntersecting");
+            if (delay && delay > 0) {
+              setTimeout(() => {
+                setIsIntersecting(true);
+                setHasBeenViewed(true);
+              }, delay);
+              return;
+            }
+
             setIsIntersecting(true);
             setHasBeenViewed(true);
           } else {
-            console.log("not isIntersecting");
+            //testing
+            // console.log("not isIntersecting");
             setIsIntersecting(false);
           }
         });
@@ -72,16 +104,18 @@ const AnimateOnView: FC<AnimateOnViewProps> = ({
     };
   }, []);
 
+  //delay animation
+
   return (
     <AnimateOnViewContext.Provider value={{ isIntersectingNow }}>
       <div
-        style={isIntersectingNow || hasBeenViewed ? activeStyle : inactiveStyle}
-        ref={ref}
-        className={
+        style={
           isIntersectingNow || hasBeenViewed
-            ? activeStyleClass
-            : inactiveStyleClass
+            ? animationTypes[type].active
+            : animationTypes[type].inactive
         }
+        ref={ref}
+        className={`${className} h-fit w-fit`}
       >
         {children}
       </div>

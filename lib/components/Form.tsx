@@ -30,7 +30,7 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-const formVariants = cva("flex flex-col w-full h-fit ", {
+const formVariants = cva("flex flex-col  w-full h-full ", {
   variants: {},
   defaultVariants: {},
 });
@@ -50,124 +50,116 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(
       resolver: zodResolver(schema),
     });
 
-    const onSubmit: SubmitHandler<FormValues> = async (data) => {
-      try {
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          body: JSON.stringify({
-            fullName: data.fullName,
-            email: data.email,
-            tel: data.tel,
-            messageBody: data.message,
-          }), // <-- this is the important part
-        });
-
-        if (response.ok) {
-          alert("Thank you for your message! We will get back to you shortly.");
-          console.log("Full name: ", data.fullName);
-          console.log("Email: ", data.email);
-          console.log("Phone number: ", data.tel);
-          console.log("Message: ", data.message);
-          console.log(response);
-          reset();
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    const onSubmit: SubmitHandler<FormValues> = async (data) => {};
 
     return (
-      <Card className="lg:w-[36rem] w-[100%] h-fit" elevation={2}>
+      <Card
+        className="lg:w-[70%] w-[100%] h-fit rounded-none bg-white"
+        elevation={3}
+      >
         <CardHeader className="mb-4">
-          <CardTitle>Get Started</CardTitle>
+          <CardTitle className="font-headings !font-bold text-h4 lg:text-h3 ">
+            Send us a message
+          </CardTitle>
         </CardHeader>
-        <CardBody className="h-fit">
+        <CardBody className="h-[28rem]  w-full">
           <form
             ref={ref}
             {...props}
             className={psb(formVariants({ className }))}
-            onSubmit={handleSubmit(onSubmit)}
+            // onSubmit={handleSubmit(onSubmit)}
+            data-netlify="true"
+            name="contact"
+            netlify-honeypot="bot-field"
+            method="POST"
           >
-            <div className="h-24">
-              <label htmlFor="full name"></label>
+            <p className="hidden">
+              <label>
+                Don’t fill this out if you{"'"}re human:{" "}
+                <input name="bot-field" />
+              </label>
+            </p>
+            <input type="hidden" name="form-name" value="contact" />
+            <div className="h-[20%]   ">
+              <label className="sr-only">Name</label>
               <input
                 type="text"
-                className={`px-4 py-2 h-16  rounded-[12px]   text-body border-2 ${
+                className={`px-4 py-2 h-[65%]     text-body border-2 ${
                   errors.fullName
                     ? "border-danger"
-                    : "border-primary50 focus:border-primary75"
+                    : "border-accent focus:border-accent75"
                 }  w-full`}
                 id="fullName"
                 placeholder="Full Name"
                 {...register("fullName")}
               />
               {errors.fullName ? (
-                <span className="text-danger text-body">
+                <span className="text-danger text-body-small">
                   {errors.fullName.message}
                 </span>
               ) : null}
             </div>
-            <div className="h-24">
-              <label htmlFor="email"></label>
+            <div className="h-[20%]">
+              <label className="sr-only">Email</label>
               <input
                 type="text"
-                className={`px-4 py-2 h-16  rounded-[12px]   text-body border-2 ${
+                className={`px-4 py-2 h-[65%]     text-body border-2 ${
                   errors.email
                     ? "border-danger"
-                    : "border-primary50 focus:border-primary75"
+                    : "border-accent focus:border-accent75"
                 }  w-full`}
                 id="email"
                 placeholder="Email"
                 {...register("email")}
               />
               {errors.email ? (
-                <span className="text-danger text-body">
+                <span className="text-danger text-body-small">
                   {errors.email.message}
                 </span>
               ) : null}
             </div>
-            <div className="h-24">
-              <label htmlFor="tel"></label>
+            <div className="h-[20%]">
+              <label className="sr-only">Phone</label>
               <input
                 type="number"
-                className={`px-4 py-2 h-16  rounded-[12px]   text-body border-2 ${
+                className={`px-4 py-2 h-[65%]     text-body border-2 ${
                   errors.tel
                     ? "border-danger"
-                    : "border-primary50 focus:border-primary75"
+                    : "border-accent focus:border-accent75"
                 }  w-full`}
                 id="tel"
                 placeholder="Phone Number"
                 {...register("tel")}
               />
               {errors.tel ? (
-                <span className="text-danger text-body">
+                <span className="text-danger text-body-small">
                   {errors.tel.message}
                 </span>
               ) : null}
             </div>
-            <div className="h-56">
-              <label htmlFor="full name"></label>
+            <div className="h-[40%]">
+              <label className="sr-only">Message</label>
               <textarea
                 placeholder="Message"
-                className={`px-4 py-2 h-48  rounded-[12px]   text-body border-2 ${
+                className={`px-4 py-2 h-[80%]     text-body border-2 ${
                   errors.message
                     ? "border-danger"
-                    : "border-primary50 focus:border-primary75"
+                    : "border-accent focus:border-accent75"
                 }  w-full`}
                 id="message"
                 {...register("message")}
               />
               {errors.message ? (
-                <span className="text-danger text-body">
+                <span className="text-danger text-body-small">
                   {errors.message.message}
                 </span>
               ) : null}
             </div>
-            <div className="w-full flex justify-end">
+            <div className="w-full flex justify-end ">
               <Button
-                variant="filled"
+                variant="filled-accent"
                 size="lg"
-                className=""
+                className="mr-4 mb-4 -sm:!w-[50%] flex items-center justify-center bg-accent-gradient !text-dark-gray"
                 elevation={4}
                 disabled={isSubmitting}
                 type="submit"

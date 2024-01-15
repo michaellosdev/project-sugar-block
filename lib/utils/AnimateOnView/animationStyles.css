@@ -1,0 +1,49 @@
+@keyframes neonFlash {
+  0%, 2%, 5% {
+    opacity: 0.2;
+    text-shadow: none;
+  }
+  3% {
+    opacity: 0.8;
+    text-shadow: 0 0 5px theme('colors.extra');
+  }
+  6% {
+    opacity: 0.1;
+    text-shadow: 0 0 10px theme('colors.white'), 
+                 0 0 20px theme('colors.extra');
+  }
+  9% {
+    opacity: 1;
+    text-shadow: 0 0 5px theme('colors.extra');
+  }
+  11%, 13%, 17% {
+    opacity: 0.9;
+    text-shadow: 0 0 5px theme('colors.extra'), 
+                 0 0 15px theme('colors.white');
+  }
+  19% {
+    opacity: 0.6;
+    text-shadow: 0 0 5px theme('colors.extra'), 
+                 0 0 20px theme('colors.extra');
+  }
+  25% {
+    opacity: 0.7;
+    text-shadow: 0 0 10px theme('colors.white'), 
+                 0 0 30px theme('colors.extra');
+  }
+  30% {
+    opacity: 0.8;
+    text-shadow: 0 0 5px theme('colors.extra');
+  }
+  
+  
+  
+  100% {
+    opacity: 0.9;
+    text-shadow: 
+      0 0 30px theme('colors.extra'), 
+      0 0 60px theme('colors.primary'), 
+      0 0 110px theme('colors.extra'), 
+      0 0 100px theme('colors.white');
+  }
+}

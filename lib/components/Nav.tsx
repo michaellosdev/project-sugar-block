@@ -139,7 +139,7 @@ const Nav = React.forwardRef<HTMLDivElement, NavProps>(
 
           <div
             className={
-              psb(fill === "transparent" ? "bg-primary" : "bg-transparent") +
+              psb(fill === "transparent" ? "bg-primary text-secondary" : "") +
               " " +
               psb(
                 `fixed inset-0 z-50  transform  transition-transform duration-500 ease-in-out ${

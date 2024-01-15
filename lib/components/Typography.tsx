@@ -6,12 +6,12 @@ import { psb } from "../utils/psb";
 const typographyVariants = cva("typography", {
   variants: {
     variant: {
-      display: "text-display",
-      h1: "text-h1",
-      h2: "text-h2",
-      h3: "text-h3",
-      h4: "text-h4",
-      h5: "text-h5 uppercase",
+      display: "!text-display",
+      h1: "!text-h1",
+      h2: "!text-h2",
+      h3: "!text-h3",
+      h4: "!text-h4",
+      h5: "!text-h5 !uppercase",
       label: "text-label uppercase",
       "label-small": "text-label-small uppercase",
       "label-large": "text-label-large uppercase",
